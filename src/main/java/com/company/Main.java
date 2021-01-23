@@ -1,8 +1,9 @@
 package com.company;
 
-import com.company.models.User;
+import com.company.models.FileModel;
 import com.company.server.INiceNoteServer;
 import com.company.server.NiceNoteServer;
+import com.google.gson.Gson;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
@@ -23,8 +24,8 @@ public class Main {
         registry.rebind("NiceNoteServer", server);
 //        String path = "jdbc:sqlite:./src/database.db";
 //        ConnectionSource connectionSource = new JdbcConnectionSource(path);
-//        Dao<User, Integer> accountDao = DaoManager.createDao(connectionSource, User.class);
+//        Dao<FileModel, Integer> accountDao = DaoManager.createDao(connectionSource, FileModel.class);
 //
-//        TableUtils.createTable(connectionSource, User.class);
+//        TableUtils.createTable(connectionSource, FileModel.class);
     }
 }

@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "users")
-public class User {
+public class UserModel {
     @DatabaseField(generatedId = true, allowGeneratedIdInsert = true)
     private Integer id;
 
@@ -20,13 +20,13 @@ public class User {
     @DatabaseField(canBeNull = false)
     private String password;
 
-    public User(String firstName, String lastName, String email, String password) {
+    public UserModel(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
     }
-    public User() {}
+    public UserModel() {}
 
     public Integer getId() {
         return id;

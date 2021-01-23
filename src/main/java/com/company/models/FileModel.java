@@ -3,21 +3,22 @@ package com.company.models;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "users")
-public class File {
+@DatabaseTable(tableName = "files")
+public class FileModel {
     @DatabaseField(generatedId = true, allowGeneratedIdInsert = true)
     private Integer id;
 
     @DatabaseField(foreign = true,foreignAutoCreate = true, foreignAutoRefresh = true)
-    private User user;
+    private UserModel user;
 
     @DatabaseField(canBeNull = false)
     private String fileName;
 
-    public File(User user, String fileName) {
-
+    public FileModel(UserModel user, String fileName) {
+        this.user = user;
+        this.fileName = fileName;
     }
-    public File() {}
+    public FileModel() {}
 
     public Integer getId() {
         return id;
@@ -27,7 +28,7 @@ public class File {
         return fileName;
     }
 
-    public User getUser() {
+    public UserModel getUser() {
         return user;
     }
 
