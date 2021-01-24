@@ -1,6 +1,7 @@
 package com.company.server;
 
 import com.company.common.TextFile;
+import com.company.common.User;
 import com.company.controllers.FilesController;
 import com.company.controllers.UsersController;
 import com.company.models.UserModel;
@@ -20,7 +21,7 @@ public class NiceNoteServer extends UnicastRemoteObject implements INiceNoteServ
     }
 
     @Override
-    public Integer login(String email, String password) throws RemoteException {
+    public User login(String email, String password) throws RemoteException {
         return usersController.login(email, password);
     }
 

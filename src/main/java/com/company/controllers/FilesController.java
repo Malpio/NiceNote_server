@@ -32,6 +32,9 @@ public class FilesController {
 
     public Integer createFile(UserModel user, String fileName)  {
         try {
+            if (!checkFileName(user, fileName))
+                return null;
+
             String path = "./files/user_" + user.getId() + "/" + fileName;
             File file = new File(path);
             FileModel fileModel = new FileModel(user, fileName);
@@ -83,6 +86,18 @@ public class FilesController {
             fileWriter.close();
         } catch (IOException ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public boolean checkFileName(UserModel user, String fileName) throws SQLException {
+        try {
+            List<FileModel> list = filesDao.queryForEq("user_id", user);
+            for(FileModel file: list)
+                if (file.getFileName().equals(fileName))
+                    return false;
+            return true;
+        } catch (SQLException ex) {
+            return false;
         }
     }
 }
